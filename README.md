@@ -1,2 +1,2 @@
-# Yeti_Wears
+# yetiwears
 Clothing Ecommerce Sites
