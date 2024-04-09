@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+<style>
+  .product a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+<div class="d-flex flex-wrap">
+  {% for product in products %}
+  <div class="product flex-grow-1 p-2" style="min-width: 0; max-width: 33.333333%;">
+    <div class="p-3 bg-light">
+      <a href="{% url 'product_detail' product.slug %}">
+        <h2 class="text-xl font-bold">{{ product.title }}</h2>
+        <p class="text-sm">{{ product.description }}</p>
+        <p class="text-lg fw-bold">NPR {{ product.price }}</p>
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

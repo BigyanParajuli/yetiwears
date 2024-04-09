@@ -1,0 +1,12 @@
+from django.shortcuts import render
+from store.models import Category, Product
+# Create your views here.
+
+def frontpage(request):
+    products = Product.objects.all()[0:6]
+    return render(request, 'core/frontpage.html', {
+        'products': products
+    })
+
+def men(request):
+    return render(request, 'core/men.html')
