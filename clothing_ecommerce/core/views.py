@@ -8,5 +8,5 @@ def frontpage(request):
         'products': products
     })
 
-def men(request):
-    return render(request, 'core/men.html')
+def about(request):
+    return render(request, 'core/about.html')
