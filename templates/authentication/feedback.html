@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Review</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      width: 300px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+    .rating {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .rating input {
+      display: none;
+    }
+    .rating label {
+      font-size: 24px;
+      color: #ccc;
+      cursor: pointer;
+    }
+    .rating label:before {
+      content: "\2605";
+    }
+    .rating input:checked ~ label {
+      color: #ffc107;
+    }
+    .rating-value {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .review-box {
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 10px;
+      font-size: 14px;
+      height: 100px;
+      resize: none;
+      margin-bottom: 10px;
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+    }
+    button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 3px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button.cancel {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    button.submit {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+    button.submit:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form method="post" action="{% url 'submit_feedback' %}">
+      {% csrf_token %}
+      <div class="rating">
+        <span class="rating-value">0</span>
+        <input type="radio" id="star5" name="rating" value="5" />
+        <label for="star5"></label>
+        <input type="radio" id="star4" name="rating" value="4" />
+        <label for="star4"></label>
+        <input type="radio" id="star3" name="rating" value="3" />
+        <label for="star3"></label>
+        <input type="radio" id="star2" name="rating" value="2" />
+        <label for="star2"></label>
+        <input type="radio" id="star1" name="rating" value="1" />
+        <label for="star1"></label>
+      </div>
+      <textarea class="review-box" name="review_text" placeholder="Private Review"></textarea>
+      <div class="button-container">
+        <button type="submit" class="submit">Submit</button>
+        <a href="{% url 'home' %}" class="cancel">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const ratingInputs = document.querySelectorAll('.rating input');
+    const ratingValue = document.querySelector('.rating-value');
+
+    ratingInputs.forEach(input => {
+      input.addEventListener('change', () => {
+        ratingValue.textContent = input.value;
+      });
+    });
+  </script>
+</body>
+</html>
