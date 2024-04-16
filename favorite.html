@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorites</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e6f7ff; /* Lighter sky blue background */
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        .favorites-container {
+            max-width: 960px;
+            width: 100%;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px; /* More pronounced curve */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        h2 {
+            color: #0056b3; /* Sky blue color */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .favorites-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .favorite-item {
+            background-color: #f0faff; /* Very light sky blue for items */
+            padding: 20px;
+            border-radius: 10px; /* More rounded corners for items */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .favorite-item:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+        }
+        .favorite-item img {
+            width: 100%; /* Bigger images */
+            height: auto;
+            border-radius: 8px; /* Rounded images */
+            margin-bottom: 15px;
+        }
+        .favorite-item h3 {
+            font-size: 18px;
+            color: #007bff; /* Sky blue color for text */
+            margin: 0 0 15px 0;
+        }
+        .favorite-item button {
+            background-color: #007bff; /* Sky blue background */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded button edges */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+            outline: none;
+        }
+        .favorite-item button:hover {
+            background-color: #0056b3; /* Darker sky blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="favorites-container">
+        <h2>My Favorite Items</h2>
+        <div class="favorites-grid">
+            <!-- Initial favorite items will be listed here -->
+        </div>
+    </div>
+    <script>
+        function addFavoriteItem(imageSrc, title) {
+            const grid = document.querySelector('.favorites-grid');
+            const item = document.createElement('div');
+            item.classList.add('favorite-item');
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = title;
+            item.appendChild(img);
+            const h3 = document.createElement('h3');
+            h3.textContent = title;
+            item.appendChild(h3);
+            const button = document.createElement('button');
+            button.textContent = 'Remove from Favorites';
+            button.onclick = function() { 
+                grid.removeChild(item);
+            };
+            item.appendChild(button);
+            grid.appendChild(item);
+        }
+
+        // Example items (these would be replaced by dynamic data in a real scenario)
+        addFavoriteItem("./image", 'Floral Dress');
+        addFavoriteItem('./image2.jpeg', 'T-shirt');
+        addFavoriteItem('./image3.jpeg', 'Pink Kid T-shirt');
+        // Add more items using addFavoriteItem(imageSrc, title);
+       
+
+    </script>
+</body>
+</html>
