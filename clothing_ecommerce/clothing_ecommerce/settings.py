@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-v078ki*0#eas@r5zg4ez5%q^ys&1mod%)cdw_)pgumjw!9b4f-
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+CART_SESSION_ID = 'cart'
 LOGIN_REDIRECT_URL = 'myaccount'
 LOGOUT_REDIRECT_URL = 'frontpage'
 
