@@ -51,13 +51,13 @@ def signup(request):
         myuser.save()
         messages.success(request, "Your Account has been created successfully!!")
 
-        # You can still send a welcome email if you want, just remove the confirmation part
-        # Welcome Email
-        subject = "Welcome to GFG- Django Login!!"
-        message = "Hello " + myuser.first_name + "!! \n" + "Welcome to GFG!! \nThank you for visiting our website.\n\nThanking You\nAnubhav Madhav"        
-        from_email = settings.EMAIL_HOST_USER
-        to_list = [myuser.email]
-        send_mail(subject, message, from_email, to_list, fail_silently=True)
+        # # You can still send a welcome email if you want, just remove the confirmation part
+        # # Welcome Email
+        # subject = "Welcome to GFG- Django Login!!"
+        # message = "Hello " + myuser.first_name + "!! \n" + "Welcome to GFG!! \nThank you for visiting our website.\n\nThanking You\nAnubhav Madhav"        
+        # from_email = settings.EMAIL_HOST_USER
+        # to_list = [myuser.email]
+        # send_mail(subject, message, from_email, to_list, fail_silently=True)
         
         return redirect('signin')
         
