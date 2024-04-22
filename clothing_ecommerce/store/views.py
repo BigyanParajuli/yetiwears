@@ -47,3 +47,5 @@ def product_detail(request, category_slug, slug):
     return render(request, 'store/product_detail.html', {
         'product': product
     })
+    
+    

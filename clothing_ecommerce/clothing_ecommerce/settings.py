@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-v078ki*0#eas@r5zg4ez5%q^ys&1mod%)cdw_)pgumjw!9b4f-
 DEBUG = True
 
 ALLOWED_HOSTS = []
+SESSION_COOKI_AGE = 1209600
 
 CART_SESSION_ID = 'cart'
 LOGIN_REDIRECT_URL = 'myaccount'
@@ -43,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'store',
-    'userprofile'
+    'userprofile',
+    'django_extensions',
     
 ]
 
@@ -133,3 +135,8 @@ MEDIA_ROOT = BASE_DIR/'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GRAPH_MODELS ={
+'all_applications': True,
+'graph_models': True,
+}
